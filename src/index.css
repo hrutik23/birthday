@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+  --font-script: 'Pacifico', cursive;
+  --color-blush: #ffd6e5;
+  --color-rosy: #ff8fb7;
+  --color-lilac: #e3d4ff;
+  --color-cream: #fff8f0;
+  --color-peach: #ffd5bd;
+  --color-butter: #fff2b3;
+  --color-gold: #d9a38f;
+  --color-ink: #6b4a5e;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; font-family: var(--font-sans); color: var(--color-ink);
+  background: linear-gradient(180deg, #fff0f6 0%, #f6ecff 35%, #fff4ea 70%, #ffeaf2 100%);
+  background-attachment: fixed; overflow-x: hidden; -webkit-tap-highlight-color: transparent;
+}
+body.locked { overflow: hidden; }
+
+.glass {
+  background: rgba(255,255,255,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255,255,255,.8); box-shadow: 0 10px 35px rgba(255,143,183,.22);
+}
+.btn-cute {
+  border: 0; cursor: pointer; font-weight: 700; color: #fff; border-radius: 9999px;
+  padding: .95rem 1.8rem; font-size: 1.05rem; min-height: 48px; font-family: inherit;
+  background: linear-gradient(135deg, #ff9ec4, #ffb58f); box-shadow: 0 8px 22px rgba(255,143,183,.5), inset 0 -3px 0 rgba(0,0,0,.08);
+}
+.btn-cute:active { transform: translateY(2px) scale(.98); }
+.title-script { font-family: var(--font-script); background: linear-gradient(90deg,#ff7fae,#d9a38f,#b48cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+@keyframes floatUp { 0% { transform: translateY(0) translateX(0) rotate(0); opacity: 0 } 10% { opacity: .85 } 90% { opacity: .85 } 100% { transform: translateY(-115vh) translateX(var(--dx,20px)) rotate(var(--rot,20deg)); opacity: 0 } }
+@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@keyframes wiggle { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(4deg) } }
+@keyframes flicker { 0%,100% { transform: scale(1,1) rotate(-2deg) } 50% { transform: scale(.9,1.12) rotate(2deg) } }
+@keyframes twinkle { 0%,100% { opacity: .2; transform: scale(.7) } 50% { opacity: 1; transform: scale(1.15) } }
+@keyframes flutter { 0%,100% { transform: scaleX(1) } 50% { transform: scaleX(.35) } }
+@keyframes pulse-heart { 0%,100% { transform: scale(1) } 50% { transform: scale(1.12) } }
+@keyframes smoke { 0% { opacity: .8; transform: translateY(0) scale(.6) } 100% { opacity: 0; transform: translateY(-40px) scale(1.6) } }
+@keyframes caret { 50% { opacity: 0 } }
+@keyframes sparkleOut { 0% { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(0) } 100% { opacity: 0; transform: translate(-50%,-50%) translateY(18px) scale(0) rotate(120deg) } }
+
+.float-up { position: absolute; bottom: -60px; animation: floatUp linear infinite; will-change: transform; }
+.bob { animation: bob 3.2s ease-in-out infinite; }
+.wiggle { animation: wiggle 2.4s ease-in-out infinite; }
+.twinkle { animation: twinkle 2.5s ease-in-out infinite; }
+.pulse-heart { animation: pulse-heart 1.6s ease-in-out infinite; }
+.flame { animation: flicker .6s ease-in-out infinite; transform-origin: 50% 100%; }
+.caret::after { content: '|'; animation: caret 1s steps(1) infinite; margin-left: 1px; }
+.sparkle-dot { position: fixed; pointer-events: none; z-index: 100; animation: sparkleOut .8s ease-out forwards; }
+.scroll-snap-offset { scroll-margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-up, .bob, .wiggle, .twinkle, .pulse-heart, .flame { animation: none; }
+  html { scroll-behavior: auto; }
+}
