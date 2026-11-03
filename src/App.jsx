@@ -8,6 +8,7 @@ import Reasons from './components/Reasons'
 import Letter from './components/Letter'
 import Finale from './components/Finale'
 import { ComplimentButton, CursorSparkles, MusicToggle, ProgressBar } from './components/Widgets'
+import { initSmoothScroll } from './lib/smoothScroll'
 
 const SECTIONS = ['hero', 'gallery', 'reasons', 'letter', 'finale']
 
@@ -16,6 +17,7 @@ export default function App() {
   const [opened, setOpened] = useState(false)
 
   useEffect(() => { const t = setTimeout(() => setLoading(false), 1700); return () => clearTimeout(t) }, [])
+  useEffect(() => { if (opened) return initSmoothScroll() }, [opened])
   useEffect(() => { document.body.classList.toggle('locked', !opened); if (opened) scrollTo(0, 0) }, [opened])
 
   return (
