@@ -16,11 +16,10 @@ function GiftBox({ open }) {
           <div className="absolute inset-y-0 left-1/2 w-9 -translate-x-1/2 bg-gradient-to-b from-[#fff2b3] to-[#ffe27a]" />
           {/* dots */}
           {[[14, 30], [20, 70], [78, 40], [74, 80], [30, 105]].map(([l, t], i) => <span key={i} className="absolute h-3 w-3 rounded-full bg-white/60" style={{ left: `${l}%`, top: t }} />)}
-        </motion.div>
-        {/* lid */}
-        <motion.div className="absolute left-1/2 top-[22%] h-12 w-52 origin-bottom-left" style={{ marginLeft: '-6.5rem' }}
-          animate={open ? { y: -90, rotate: -28, x: -30, opacity: 0 } : { y: 0, rotate: 0 }} transition={{ duration: .9, ease: 'easeInOut' }}>
-          <div className="relative h-full w-full rounded-xl bg-gradient-to-b from-[#ffc6dc] to-[#ff9ec4] shadow-md">
+          {/* lid – nested inside the box so it sits flush and wiggles with it */}
+          <motion.div className="absolute left-1/2 h-12 w-52 origin-bottom-left" style={{ marginLeft: '-6.5rem', bottom: 'calc(100% - 5px)' }}
+            animate={open ? { y: -90, rotate: -28, x: -30, opacity: 0 } : { y: 0, rotate: 0 }} transition={{ duration: .9, ease: 'easeInOut' }}>
+          <div className="relative h-full w-full rounded-t-xl bg-gradient-to-b from-[#ffc6dc] to-[#ff9ec4]">
             <div className="absolute inset-y-0 left-1/2 w-9 -translate-x-1/2 bg-gradient-to-b from-[#fff2b3] to-[#ffe27a]" />
             {/* bow */}
             <div className="absolute -top-8 left-1/2 -translate-x-1/2">
@@ -31,6 +30,7 @@ function GiftBox({ open }) {
               </div>
             </div>
           </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
