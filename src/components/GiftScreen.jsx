@@ -43,12 +43,12 @@ export default function GiftScreen({ onOpened }) {
   const handleOpen = (e) => {
     if (open) return
     setOpen(true)
-    setTimeout(() => { burst({ x: innerWidth / 2, y: innerHeight * .45, count: 140, power: 15 }); rain(2200) }, 450)
-    setTimeout(onOpened, 2100)
+    setTimeout(() => { burst({ x: innerWidth / 2, y: innerHeight * .45, count: 140, power: 15 }); rain(2200) }, 350)
+    setTimeout(onOpened, 1400)
   }
 
   return (
-    <motion.div className="fixed inset-0 z-[80] overflow-y-auto bg-gradient-to-b from-[#ffe3ee] via-[#f3e8ff] to-[#fff3e6]" exit={{ opacity: 0, scale: 1.08 }} transition={{ duration: .8 }}>
+    <motion.div className="fixed inset-0 z-[80] overflow-y-auto bg-gradient-to-b from-[#ffe3ee] via-[#f3e8ff] to-[#fff3e6]" exit={{ opacity: 0, scale: 1.05 }} transition={{ duration: .5 }}>
       <FloatingItems kinds={['heart', 'star', 'sparkle', 'butterfly']} count={14} />
       <div className="relative flex min-h-full flex-col items-center justify-center px-6 py-10 text-center">
         <motion.div animate={open ? { opacity: 0, y: -20 } : { opacity: 1 }} className="space-y-3">

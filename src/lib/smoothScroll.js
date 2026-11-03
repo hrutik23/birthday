@@ -12,8 +12,9 @@ export function initSmoothScroll() {
 
   const tick = () => {
     current += (target - current) * 0.12
-    if (Math.abs(target - current) < 0.5) { window.scrollTo(0, target); raf = 0; return }
-    window.scrollTo(0, current)
+    // 'instant' is required — CSS scroll-behavior:smooth would re-animate each step
+    if (Math.abs(target - current) < 0.5) { window.scrollTo({ top: target, behavior: 'instant' }); raf = 0; return }
+    window.scrollTo({ top: current, behavior: 'instant' })
     raf = requestAnimationFrame(tick)
   }
 

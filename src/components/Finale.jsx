@@ -35,7 +35,7 @@ export default function Finale() {
   useEffect(() => { if (inView) celebrate() }, [inView])
 
   return (
-    <section ref={ref} id="finale" data-section className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-24 text-center">
+    <section ref={ref} id="finale" data-section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-5 py-24 text-center">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-[#ffd6e5]/70 to-[#e3d4ff]/80" />
       <FloatingItems kinds={['heart', 'sparkle', 'star', 'heart', 'butterfly']} count={22} parallax={60} />
       <Doodles items={[

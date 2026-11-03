@@ -57,7 +57,7 @@ export default function Hero({ active }) {
   }
 
   return (
-    <section id="hero" data-section className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-16">
+    <section id="hero" data-section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-5 py-16">
       <FloatingItems kinds={['balloon', 'heart', 'sparkle', 'star', 'balloon', 'butterfly']} count={16} parallax={50} />
       <Doodles items={[
         ['squiggle', 'top-24 left-[6%] rotate-6 hidden sm:block'],
@@ -88,7 +88,7 @@ export default function Hero({ active }) {
             {lit ? <><Wand2 size={20} /> Make a Wish ✨</> : <><Flame size={20} /> Light them again 🕯️</>}
           </motion.button>
         </div>
-        <p className="mt-10 font-hand text-xl text-ink/60 bob">scroll down, there's more ↓</p>
+        <a href="#gallery" className="mt-10 inline-block font-hand text-xl text-ink/60 bob no-underline">scroll down, there's more ↓</a>
       </div>
     </section>
   )

@@ -59,7 +59,7 @@ body.locked { overflow: hidden; }
 /* Mobile: gentle page-snap so each swipe lands on the next surprise */
 @media (max-width: 640px) {
   html { scroll-snap-type: y proximity; }
-  section[data-section] { scroll-snap-align: start; }
+  #hero, #finale { scroll-snap-align: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
