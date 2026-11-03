@@ -7,7 +7,7 @@ import { FloatingItems } from './Decor'
 function GiftBox({ open }) {
   return (
     <div className="relative mx-auto h-56 w-56 sm:h-64 sm:w-64" aria-hidden="true">
-      <div className="absolute inset-x-0 bottom-0 top-0 grid place-items-end">
+      <div className="absolute inset-x-0 bottom-0 top-0 grid items-end justify-items-center">
         <motion.div animate={open ? { scale: [1, 1.04, 1] } : { rotate: [-2, 2, -2] }} transition={open ? { duration: .5 } : { duration: 2, repeat: Infinity }} className="relative h-40 w-44 sm:h-44 sm:w-48 origin-bottom">
           {/* inside glow */}
           <motion.div className="absolute -top-10 left-1/2 h-20 w-32 -translate-x-1/2 rounded-full bg-butter blur-2xl" animate={{ opacity: open ? 1 : 0 }} />
