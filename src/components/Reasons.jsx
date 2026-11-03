@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Crown, Flower2, Heart, Smile, Sparkles, Star } from 'lucide-react'
 import { config } from '../config'
 import { burst } from '../lib/confetti'
-import { Reveal, SectionTitle } from './Decor'
+import { Doodles, Reveal, SectionTitle } from './Decor'
 
 const ICONS = { smile: Smile, sparkles: Sparkles, flower: Flower2, star: Star, heart: Heart, crown: Crown }
 const TINTS = ['from-[#ffd6e5] to-[#ffb3cf]', 'from-[#e3d4ff] to-[#c9a8ff]', 'from-[#ffd5bd] to-[#ffbf9e]', 'from-[#fff2b3] to-[#ffe27a]', 'from-[#ffd6e5] to-[#e3d4ff]', 'from-[#ffe9d9] to-[#ffc3d6]']
@@ -38,6 +38,11 @@ export default function Reasons({ onAllFlipped }) {
   const flip = (i) => { seen.add(i); if (seen.size === config.reasons.length) onAllFlipped?.() }
   return (
     <section id="reasons" data-section className="relative px-5 py-24 sm:px-8">
+      <Doodles items={[
+        ['star', 'top-24 right-[6%] rotate-12'],
+        ['heart', 'bottom-20 left-[5%] -rotate-6 hidden sm:block'],
+        ['squiggle', 'bottom-32 right-[7%] rotate-3 hidden sm:block'],
+      ]} />
       <SectionTitle emoji="💌" sub="flip every card to see them all">A Few Reasons Why You're So Special</SectionTitle>
       <div className="mx-auto grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
         {config.reasons.map((r, i) => <FlipCard key={i} item={r} i={i} onFlip={flip} />)}

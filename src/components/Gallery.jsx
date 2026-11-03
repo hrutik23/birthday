@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Heart, X } from 'lucide-react'
 import { config } from '../config'
-import { Reveal, SectionTitle } from './Decor'
+import { Doodles, Reveal, SectionTitle } from './Decor'
 
 const TILTS = [-4, 3, -2, 5, -5, 2, -3, 4]
 
@@ -46,6 +46,12 @@ export default function Gallery() {
   return (
     <section id="gallery" data-section className="relative overflow-hidden px-4 py-24 sm:px-8">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-lilac/40 to-transparent" />
+      <Doodles items={[
+        ['flower', 'top-20 left-[4%] rotate-6 hidden sm:block'],
+        ['spark', 'top-32 right-[5%] -rotate-6'],
+        ['squiggle', 'bottom-24 left-[5%] -rotate-6 hidden sm:block'],
+        ['heart', 'bottom-40 right-[6%] rotate-12'],
+      ]} />
       <SectionTitle emoji="📸" sub="tap a polaroid to peek closer">A Little Gallery of Us</SectionTitle>
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-4">
         {config.gallery.map((g, i) => (

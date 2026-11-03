@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Wand2, Flame } from 'lucide-react'
 import { config } from '../config'
 import { burst, rain } from '../lib/confetti'
-import { FloatingItems } from './Decor'
+import { Doodles, FloatingItems } from './Decor'
 
 const CANDLES = [{ x: 28, c: '#ffb3cf' }, { x: 50, c: '#c9a8ff' }, { x: 72, c: '#ffe27a' }]
 
@@ -58,7 +58,14 @@ export default function Hero({ active }) {
 
   return (
     <section id="hero" data-section className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-16">
-      <FloatingItems kinds={['balloon', 'heart', 'sparkle', 'star', 'balloon', 'butterfly']} count={16} />
+      <FloatingItems kinds={['balloon', 'heart', 'sparkle', 'star', 'balloon', 'butterfly']} count={16} parallax={50} />
+      <Doodles items={[
+        ['squiggle', 'top-24 left-[6%] rotate-6 hidden sm:block'],
+        ['heart', 'top-1/4 right-[7%] -rotate-12'],
+        ['arrow', 'bottom-32 left-[8%] rotate-12 hidden sm:block'],
+        ['star', 'bottom-40 right-[9%] rotate-6'],
+        ['xoxo', 'top-[60%] left-[5%] rotate-12'],
+      ]} />
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <motion.h1 initial={{ opacity: 0, scale: .8 }} animate={active ? { opacity: 1, scale: 1 } : {}} transition={{ type: 'spring', delay: .1 }} className="title-script text-4xl leading-snug sm:text-6xl">
           {config.hero.title.replace('{name}', config.name)}

@@ -53,8 +53,13 @@ export function ProgressBar({ ids }) {
   return (
     <div className="fixed inset-x-0 top-0 z-[60] px-3 pt-2" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label="Surprise explored">
       <div className="mr-14 flex items-center gap-2">
-        <div className="glass h-3 flex-1 overflow-hidden rounded-full p-[2px]">
-          <motion.div className="h-full rounded-full bg-gradient-to-r from-[#ff9ec4] via-[#ffb58f] to-[#c9a8ff]" animate={{ width: `${pct}%` }} transition={{ type: 'spring', stiffness: 80, damping: 18 }} />
+        <div className="relative flex-1 py-2">
+          <div className="glass h-3 overflow-hidden rounded-full p-[2px]">
+            <motion.div className="h-full rounded-full bg-gradient-to-r from-[#ff9ec4] via-[#ffb58f] to-[#c9a8ff]" animate={{ width: `${pct}%` }} transition={{ type: 'spring', stiffness: 80, damping: 18 }} />
+          </div>
+          <motion.div className="absolute top-0 -translate-x-1/2" animate={{ left: `${pct}%` }} transition={{ type: 'spring', stiffness: 80, damping: 18 }} aria-hidden="true">
+            <Heart size={18} fill="#ff7fae" color="#ff7fae" className="drop-shadow-md" />
+          </motion.div>
         </div>
         <span className="min-w-[3.2rem] text-right text-xs font-bold text-ink">{pct}% 💗</span>
       </div>

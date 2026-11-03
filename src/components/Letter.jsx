@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
 import { config } from '../config'
 import { burst } from '../lib/confetti'
-import { SectionTitle } from './Decor'
+import { Doodles, SectionTitle } from './Decor'
 
 function useTyping(text, run, speed = 32) {
   const chars = Array.from(text)
@@ -30,6 +30,11 @@ export default function Letter() {
 
   return (
     <section id="letter" data-section className="relative px-5 py-24">
+      <Doodles items={[
+        ['heart', 'top-24 left-[6%] rotate-12'],
+        ['flower', 'top-40 right-[6%] -rotate-6 hidden sm:block'],
+        ['xoxo', 'bottom-24 left-[7%] -rotate-6'],
+      ]} />
       <SectionTitle emoji="💗" sub={open ? '' : 'tap the envelope to open it'}>A Little Note From My Heart</SectionTitle>
       <div className="mx-auto max-w-md">
         <motion.div className="relative mx-auto" style={{ width: 'min(100%, 340px)', height: 220 }} animate={open ? { marginBottom: 0 } : {}} >

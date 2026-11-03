@@ -24,7 +24,8 @@ body.locked { overflow: hidden; }
 
 .glass {
   background: rgba(255,255,255,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border: 1.5px solid rgba(255,255,255,.8); box-shadow: 0 10px 35px rgba(255,143,183,.22);
+  border: 1.5px solid rgba(255,255,255,.8);
+  box-shadow: 0 10px 35px rgba(255,143,183,.22), inset 0 1px 0 rgba(255,255,255,.9);
 }
 .btn-cute {
   border: 0; cursor: pointer; font-weight: 700; color: #fff; border-radius: 9999px;
@@ -54,6 +55,12 @@ body.locked { overflow: hidden; }
 .caret::after { content: '|'; animation: caret 1s steps(1) infinite; margin-left: 1px; }
 .sparkle-dot { position: fixed; pointer-events: none; z-index: 100; animation: sparkleOut .8s ease-out forwards; }
 .scroll-snap-offset { scroll-margin-top: 0; }
+
+/* Mobile: gentle page-snap so each swipe lands on the next surprise */
+@media (max-width: 640px) {
+  html { scroll-snap-type: y proximity; }
+  section[data-section] { scroll-snap-align: start; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .float-up, .bob, .wiggle, .twinkle, .pulse-heart, .flame { animation: none; }
